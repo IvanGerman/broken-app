@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const Game = require('../db').import('../models/game');
 
-router.get('/all', (req, res) => {
+
+
+router.get('/all', (req, res) => { res.send('hi');
     Game.findAll({ where: { owner_id: req.user.id } })
         .then(
             function findSuccess(data) {
@@ -112,5 +114,7 @@ router.delete('/remove/:id', (req, res) => {
         }
     )
 })
+
+
 
 module.exports = router;
